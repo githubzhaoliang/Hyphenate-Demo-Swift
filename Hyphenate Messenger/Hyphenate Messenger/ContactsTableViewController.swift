@@ -163,18 +163,17 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if requestSource.count > 0 {
             switch section {
             case 0:
                 return requestSource.count
             case 1:
-                return searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource.count : dataSource.count
+                return searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource.count : dataSource.count+1
             default:
                 break
             }
         } else {
-            return searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource.count : dataSource.count
+            return searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource.count : dataSource.count+1
         }
         return 0
     }
@@ -191,21 +190,41 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
                 return cell
                 
             case 1:
-                if dataSource.count > 0 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseIdentifier()) as! ContactTableViewCell
-                    let text = searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
-                    cell.displayNameLabel.text = text as? String
-                    return cell
-                }
                 
+                if dataSource.count > 0 {
+                    if indexPath.row == 0{
+                        let cell = UITableViewCell()
+                        let groupLabel = UILabel()
+                        groupLabel.frame = CGRect(x: 20, y: 0, width: 100, height: 50)
+                        groupLabel.text = "Group"
+                        cell.contentView.addSubview(groupLabel)
+                        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+                        return cell
+                    }else{
+                        let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseIdentifier()) as! ContactTableViewCell
+                        let text = searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource[indexPath.row-1] : dataSource[indexPath.row-1]
+                        cell.displayNameLabel.text = text as? String
+                        return cell
+                    }
+                }
             default:
                 break
             }
         } else if dataSource.count > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseIdentifier()) as! ContactTableViewCell
-            let text = searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
-            cell.displayNameLabel.text = text as? String
-            return cell
+            if indexPath.row == 0{
+                let cell = UITableViewCell()
+                let groupLabel = UILabel()
+                groupLabel.frame = CGRect(x: 20, y: 0, width: 100, height: 50)
+                groupLabel.text = "Group"
+                cell.contentView.addSubview(groupLabel)
+                cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseIdentifier()) as! ContactTableViewCell
+                let text = searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
+                cell.displayNameLabel.text = text as? String
+                return cell
+            }
         }
         
         return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -232,11 +251,15 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if requestSource.count == 0 || (indexPath as NSIndexPath).section == 1 {
-            let row = filteredDataSource.count>0 ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
-            if let contact = row as? String {
-                let profileController = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
-                profileController.username = contact
-                self.navigationController!.pushViewController(profileController, animated: true)
+            if (indexPath.section == 1 && indexPath.row == 0){
+                //TODO: Navigate to GroupViewController
+            }else{
+                let row = filteredDataSource.count>0 ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
+                if let contact = row as? String {
+                    let profileController = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+                    profileController.username = contact
+                    self.navigationController!.pushViewController(profileController, animated: true)
+                }
             }
         }
     }
