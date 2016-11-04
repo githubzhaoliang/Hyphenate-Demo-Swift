@@ -16,6 +16,7 @@ class GroupsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Groups"
         tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: GroupTableViewCell.reuseIdentifier())
         loadGroupsFromServer()
     }
@@ -40,7 +41,7 @@ class GroupsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupTableViewCell.reuseIdentifier()) as! GroupTableViewCell
         let group = groups[indexPath.row]
         cell.groupNameLabel.text = group.subject
-        cell.memberCountLabel.text = "\(group.membersCount)"
+        cell.memberCountLabel.text = "\(group.membersCount) members"
         return cell
     }
     
