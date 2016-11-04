@@ -221,7 +221,7 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
                 return cell
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseIdentifier()) as! ContactTableViewCell
-                let text = searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
+                let text = searchController.isActive && searchController.searchBar.text != "" ? filteredDataSource[indexPath.row-1] : dataSource[indexPath.row-1]
                 cell.displayNameLabel.text = text as? String
                 return cell
             }
@@ -251,8 +251,9 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if requestSource.count == 0 || (indexPath as NSIndexPath).section == 1 {
-            if (indexPath.section == 1 && indexPath.row == 0){
-                //TODO: Navigate to GroupViewController
+            if indexPath.row == 0{
+                let groupViewController = GroupsTableViewController()
+                show(groupViewController, sender: self)
             }else{
                 let row = filteredDataSource.count>0 ? filteredDataSource[indexPath.row] : dataSource[indexPath.row]
                 if let contact = row as? String {

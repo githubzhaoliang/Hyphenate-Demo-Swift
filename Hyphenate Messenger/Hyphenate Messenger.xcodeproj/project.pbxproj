@@ -56,6 +56,9 @@
 		9AE30CE81DC3103D0043BDB3 /* Hyphenate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE30CE71DC3103D0043BDB3 /* Hyphenate.framework */; };
 		9AE30CE91DC3103D0043BDB3 /* Hyphenate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE30CE71DC3103D0043BDB3 /* Hyphenate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9AFE4D721D9E2731007862CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AFE4D711D9E2731007862CA /* Main.storyboard */; };
+		B627D9881DCC939100040E55 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627D9871DCC939100040E55 /* GroupsTableViewController.swift */; };
+		B627D98B1DCC995400040E55 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627D9891DCC995400040E55 /* GroupTableViewCell.swift */; };
+		B627D98C1DCC995400040E55 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B627D98A1DCC995400040E55 /* GroupTableViewCell.xib */; };
 		B63467511D9E526300CBEAE2 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63467501D9E526300CBEAE2 /* GroupListViewController.swift */; };
 		B6346AEE1D9E6C5100CBEAE2 /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B63469D11D9E6C5100CBEAE2 /* EMAudioPlayerUtil.m */; };
 		B6346AEF1D9E6C5100CBEAE2 /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B63469D31D9E6C5100CBEAE2 /* EMAudioRecorderUtil.m */; };
@@ -286,6 +289,9 @@
 		9AE1B05B1DBDCB2E00E9E706 /* M13BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13BadgeView.m; sourceTree = "<group>"; };
 		9AE30CE71DC3103D0043BDB3 /* Hyphenate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Hyphenate.framework; sourceTree = "<group>"; };
 		9AFE4D711D9E2731007862CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B627D9871DCC939100040E55 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
+		B627D9891DCC995400040E55 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupTableViewCell.swift; path = Views/GroupTableViewCell.swift; sourceTree = "<group>"; };
+		B627D98A1DCC995400040E55 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupTableViewCell.xib; path = Views/GroupTableViewCell.xib; sourceTree = "<group>"; };
 		B634674A1D9E4AD500CBEAE2 /* Hyphenate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hyphenate-Bridging-Header.h"; sourceTree = "<group>"; };
 		B63467501D9E526300CBEAE2 /* GroupListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupListViewController.swift; path = Controllers/ChatGroup/GroupListViewController.swift; sourceTree = "<group>"; };
 		B63469C61D9E6C5100CBEAE2 /* EaseUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EaseUI-Prefix.pch"; sourceTree = "<group>"; };
@@ -720,6 +726,8 @@
 		9AC1323A1DA0EC7C00A2BD05 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B627D9891DCC995400040E55 /* GroupTableViewCell.swift */,
+				B627D98A1DCC995400040E55 /* GroupTableViewCell.xib */,
 				39062AE71D9F0D4400EE8412 /* ContactTableViewCell.xib */,
 				B6346B811D9E74CE00CBEAE2 /* ContactTableViewCell.swift */,
 				9A545C871DA0CB2200DEFBC7 /* ConversationTableViewCell.swift */,
@@ -766,6 +774,7 @@
 				9A17BE251D9E20190075EF9F /* ContactsTableViewController.swift */,
 				9AC132421DA17B8200A2BD05 /* ProfileViewController.swift */,
 				9A31498F1DA429E80081DB04 /* FriendRequestViewController.swift */,
+				B627D9871DCC939100040E55 /* GroupsTableViewController.swift */,
 			);
 			name = Contact;
 			sourceTree = "<group>";
@@ -1586,6 +1595,7 @@
 				9A06AB251DB68FB5003A5B2E /* TextfieldTableViewCell.xib in Resources */,
 				B6346B671D9E6C5D00CBEAE2 /* EaseUIResource.bundle in Resources */,
 				9A06AB1D1DB58606003A5B2E /* LabelTableViewCell.xib in Resources */,
+				B627D98C1DCC995400040E55 /* GroupTableViewCell.xib in Resources */,
 				9A545C8A1DA0CB2200DEFBC7 /* ConversationTableViewCell.xib in Resources */,
 				B6346B0A1D9E6C5100CBEAE2 /* MJRefresh.bundle in Resources */,
 				9A7FB3801DA1EDA7005CC8C3 /* Profile.storyboard in Resources */,
@@ -1730,6 +1740,7 @@
 				B6346B621D9E6C5100CBEAE2 /* EaseFacialView.m in Sources */,
 				B6346B2F1D9E6C5100CBEAE2 /* PSTCollectionViewLayout.m in Sources */,
 				9A17BDF11D9E1FB70075EF9F /* AppDelegate.swift in Sources */,
+				B627D98B1DCC995400040E55 /* GroupTableViewCell.swift in Sources */,
 				9A17BE301D9E20190075EF9F /* HyphenateMessengerHelper.swift in Sources */,
 				B6346B1F1D9E6C5100CBEAE2 /* MKAnnotationView+EMWebCache.m in Sources */,
 				B6346AF21D9E6C5100CBEAE2 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
@@ -1751,6 +1762,7 @@
 				9A2E70B21DA2250D00D3EE94 /* ProfileSwitchTableViewCell.swift in Sources */,
 				B6346B171D9E6C5100CBEAE2 /* DACircularProgressView.m in Sources */,
 				B6346B241D9E6C5100CBEAE2 /* UIImage+EMWebP.m in Sources */,
+				B627D9881DCC939100040E55 /* GroupsTableViewController.swift in Sources */,
 				B6346B071D9E6C5100CBEAE2 /* MJRefreshGifHeader.m in Sources */,
 				9A3970A71DBF43E200D68937 /* UIImage+animatedGIF.m in Sources */,
 				B6346B5E1D9E6C5100CBEAE2 /* EaseChatToolbarItem.m in Sources */,
