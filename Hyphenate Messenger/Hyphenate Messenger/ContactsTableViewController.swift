@@ -197,6 +197,7 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
                         let groupLabel = UILabel()
                         groupLabel.frame = CGRect(x: 20, y: 0, width: 100, height: 50)
                         groupLabel.text = "Group"
+                        groupLabel.font = UIFont.boldSystemFont(ofSize: 17)
                         cell.contentView.addSubview(groupLabel)
                         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
                         return cell
@@ -216,6 +217,7 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
                 let groupLabel = UILabel()
                 groupLabel.frame = CGRect(x: 20, y: 0, width: 100, height: 50)
                 groupLabel.text = "Group"
+                groupLabel.font = UIFont.boldSystemFont(ofSize: 17)
                 cell.contentView.addSubview(groupLabel)
                 cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
                 return cell
@@ -266,7 +268,7 @@ class ContactsTableViewController:UITableViewController,EMGroupManagerDelegate, 
     }
     
     
-    //     MARK: - UISearchBarDelegate
+    // MARK: - UISearchBarDelegate
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredDataSource = dataSource.filter { (username) -> Bool in

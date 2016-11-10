@@ -14,17 +14,44 @@ class GroupsTableViewController: UITableViewController {
     
     var groups = [EMGroup]()
     
+    func loadGroupsFromServer() {
+        weak var weakSelf = self
+        
+        EMClient.shared().groupManager.getJoinedGroupsFromServer { (aList: [Any]?, aError: EMError?) in
+            if let _ = aList as? [EMGroup]{
+                for group in aList as! [EMGroup] {
+                    weakSelf!.groups.append(group)
+                }
+                DispatchQueue.main.async(execute: {() -> Void in
+                    weakSelf!.tableView.reloadData()
+                })
+            }
+        }
+    }
+    
+    func addContactAction() {
+        let createGroupVewController = CreateGroupViewController(nibName: "CreateGroupViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: createGroupVewController)
+        self.present(navigationController, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let image = UIImage(named: "iconAdd")
+        let rightButtonItem:UIBarButtonItem = UIBarButtonItem(image: image, landscapeImagePhone: image, style: UIBarButtonItemStyle.plain, target: self, action: #selector(GroupsTableViewController.addContactAction))
+        navigationItem.rightBarButtonItem = rightButtonItem
+        
         self.title = "Groups"
         tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: GroupTableViewCell.reuseIdentifier())
         loadGroupsFromServer()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
+    // MARK: - Table view data source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -53,19 +80,5 @@ class GroupsTableViewController: UITableViewController {
         self.navigationController!.pushViewController(chatController!, animated: true)
     }
         
-    func loadGroupsFromServer() {
-        weak var weakSelf = self
-        
-        EMClient.shared().groupManager.getJoinedGroupsFromServer { (aList: [Any]?, aError: EMError?) in
-            if let _ = aList as? [EMGroup]{
-                for group in aList as! [EMGroup] {
-                    weakSelf!.groups.append(group)
-                }
-                DispatchQueue.main.async(execute: {() -> Void in
-                    weakSelf!.tableView.reloadData()
-                })
-            }
-        }
 
-    }
 }
