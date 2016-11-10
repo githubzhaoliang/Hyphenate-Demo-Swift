@@ -46,10 +46,13 @@ class GroupsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Navigate to chat
+        
+        let chatController = ChatTableViewController(conversationID: groups[indexPath.row].groupId, conversationType: EMConversationTypeChat)
+        chatController?.title = groups[indexPath.row].subject
+        chatController?.hidesBottomBarWhenPushed = true
+        self.navigationController!.pushViewController(chatController!, animated: true)
     }
-    
-    
+        
     func loadGroupsFromServer() {
         weak var weakSelf = self
         
