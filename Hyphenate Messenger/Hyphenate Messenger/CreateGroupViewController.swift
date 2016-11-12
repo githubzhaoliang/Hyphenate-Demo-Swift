@@ -13,7 +13,6 @@ class CreateGroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.edgesForExtendedLayout = []
         self.setupNavigationBar()
     }
     
@@ -29,8 +28,6 @@ class CreateGroupViewController: UIViewController {
         cancelButton.addTarget(self, action: #selector(CreateGroupViewController.cancelAction), for: .touchUpInside)
         let barbuttonItem = UIBarButtonItem(customView: cancelButton)
         self.navigationItem.setRightBarButton(barbuttonItem, animated: false)
-
-
     }
 
     func cancelAction() {
