@@ -41,6 +41,10 @@
 		9A2E70B31DA2250D00D3EE94 /* ProfileSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E70B11DA2250D00D3EE94 /* ProfileSwitchTableViewCell.xib */; };
 		9A3149901DA429E80081DB04 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31498F1DA429E80081DB04 /* FriendRequestViewController.swift */; };
 		9A3149921DA42B360081DB04 /* FriendRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3149911DA42B360081DB04 /* FriendRequest.storyboard */; };
+		9A32FA361DD94C7A007690E5 /* PublicGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA351DD94C7A007690E5 /* PublicGroupsTableViewController.swift */; };
+		9A32FA391DD94DFE007690E5 /* EMGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA381DD94DFE007690E5 /* EMGroupModel.swift */; };
+		9A32FA3B1DD95D33007690E5 /* IEMRealtimeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA3A1DD95D33007690E5 /* IEMRealtimeSearch.swift */; };
+		9A32FA3D1DD95E33007690E5 /* IEMConferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA3C1DD95E33007690E5 /* IEMConferenceModel.swift */; };
 		9A3970A71DBF43E200D68937 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3970A61DBF43E200D68937 /* UIImage+animatedGIF.m */; };
 		9A3970A91DBF464600D68937 /* Splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A3970A81DBF464600D68937 /* Splash.gif */; };
 		9A51E5281DBF5EDD00B3695B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A51E5271DBF5EDD00B3695B /* LaunchScreen.storyboard */; };
@@ -275,6 +279,10 @@
 		9A2E70B11DA2250D00D3EE94 /* ProfileSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		9A31498F1DA429E80081DB04 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		9A3149911DA42B360081DB04 /* FriendRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendRequest.storyboard; sourceTree = "<group>"; };
+		9A32FA351DD94C7A007690E5 /* PublicGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicGroupsTableViewController.swift; sourceTree = "<group>"; };
+		9A32FA381DD94DFE007690E5 /* EMGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMGroupModel.swift; sourceTree = "<group>"; };
+		9A32FA3A1DD95D33007690E5 /* IEMRealtimeSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEMRealtimeSearch.swift; sourceTree = "<group>"; };
+		9A32FA3C1DD95E33007690E5 /* IEMConferenceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEMConferenceModel.swift; sourceTree = "<group>"; };
 		9A3970A51DBF43E200D68937 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		9A3970A61DBF43E200D68937 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		9A3970A81DBF464600D68937 /* Splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Splash.gif; sourceTree = "<group>"; };
@@ -781,6 +789,7 @@
 				B627D9871DCC939100040E55 /* GroupsTableViewController.swift */,
 				9A104C5F1DD4C6F300024500 /* CreateGroupViewController.swift */,
 				9A104C601DD4C6F300024500 /* CreateGroupViewController.xib */,
+				9A32FA351DD94C7A007690E5 /* PublicGroupsTableViewController.swift */,
 			);
 			name = Contact;
 			sourceTree = "<group>";
@@ -1438,6 +1447,9 @@
 			children = (
 				B6346B841DA24F5C00CBEAE2 /* RequestEntity.swift */,
 				B6346B861DA24F8700CBEAE2 /* InvitationManager.swift */,
+				9A32FA381DD94DFE007690E5 /* EMGroupModel.swift */,
+				9A32FA3A1DD95D33007690E5 /* IEMRealtimeSearch.swift */,
+				9A32FA3C1DD95E33007690E5 /* IEMConferenceModel.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -1699,6 +1711,7 @@
 				B6346B491D9E6C5100CBEAE2 /* EaseLocationViewController.m in Sources */,
 				B6346B3E1D9E6C5100CBEAE2 /* UIViewController+DismissKeyboard.m in Sources */,
 				B6346B3D1D9E6C5100CBEAE2 /* NSString+Valid.m in Sources */,
+				9A32FA3B1DD95D33007690E5 /* IEMRealtimeSearch.swift in Sources */,
 				B6346AF51D9E6C5100CBEAE2 /* amrFileCodec.mm in Sources */,
 				B6346B041D9E6C5100CBEAE2 /* MJRefreshBackGifFooter.m in Sources */,
 				B6346B3A1D9E6C5100CBEAE2 /* EaseUserModel.m in Sources */,
@@ -1756,6 +1769,7 @@
 				B6346B301D9E6C5100CBEAE2 /* PSTCollectionViewUpdateItem.m in Sources */,
 				B6346B4F1D9E6C5100CBEAE2 /* EMContactDetailedTableViewCell.m in Sources */,
 				B6346B021D9E6C5100CBEAE2 /* MJRefreshAutoNormalFooter.m in Sources */,
+				9A32FA391DD94DFE007690E5 /* EMGroupModel.swift in Sources */,
 				B6346B191D9E6C5100CBEAE2 /* EMSDWebImageCompat.m in Sources */,
 				B6346B381D9E6C5100CBEAE2 /* EaseConversationModel.m in Sources */,
 				B6346B051D9E6C5100CBEAE2 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1763,6 +1777,7 @@
 				B6346AEF1D9E6C5100CBEAE2 /* EMAudioRecorderUtil.m in Sources */,
 				9A3149901DA429E80081DB04 /* FriendRequestViewController.swift in Sources */,
 				B6346B4A1D9E6C5100CBEAE2 /* EaseMessageViewController.m in Sources */,
+				9A32FA3D1DD95E33007690E5 /* IEMConferenceModel.swift in Sources */,
 				B6346B141D9E6C5100CBEAE2 /* MWTapDetectingImageView.m in Sources */,
 				9A06AB211DB68E9B003A5B2E /* DisplayNameTableViewController.swift in Sources */,
 				B6346B101D9E6C5100CBEAE2 /* MWGridCell.m in Sources */,
@@ -1824,6 +1839,7 @@
 				9A17BE2B1D9E20190075EF9F /* MainViewController.swift in Sources */,
 				B63467511D9E526300CBEAE2 /* GroupListViewController.swift in Sources */,
 				B6346B001D9E6C5100CBEAE2 /* MJRefreshHeader.m in Sources */,
+				9A32FA361DD94C7A007690E5 /* PublicGroupsTableViewController.swift in Sources */,
 				B6346B331D9E6C5100CBEAE2 /* PSTGridLayoutRow.m in Sources */,
 				B6346B2E1D9E6C5100CBEAE2 /* PSTCollectionViewItemKey.m in Sources */,
 				B6346B1A1D9E6C5100CBEAE2 /* EMSDWebImageDecoder.m in Sources */,
