@@ -11,7 +11,6 @@ import CoreData
 import Fabric
 import Crashlytics
 import Hyphenate
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
