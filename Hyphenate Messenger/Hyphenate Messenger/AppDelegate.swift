@@ -11,6 +11,7 @@ import CoreData
 import Fabric
 import Crashlytics
 import Hyphenate
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -53,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = true
 
         hyphenateApplication(application, didFinishLaunchingWithOptions: launchOptions, appKey: AppDelegate.kHyphenateAppKey, apnsCertname: apnsCertName!, otherConfig:[AppDelegate.kSDKConfigEnableConsoleLogger: NSNumber(booleanLiteral: true)])
-       
+        
         return true
     }
     
@@ -200,9 +201,7 @@ extension AppDelegate {
         if ((error) != nil) {
             print("Failed to initialize SDK")
         }
-        
-        registerMessagingNotification()
-        
+                
         if EMClient.shared().isAutoLogin {
             proceedLogin()
         } else {
@@ -210,7 +209,10 @@ extension AppDelegate {
             EMClient.shared().options.isAutoLogin = true
         }
         
+        // Hyphenate
         HyphenateMessengerHelper.sharedInstance.loadConversationFromDB()
+        
+        // Fabric
         Fabric.with([Crashlytics.self])
     }
     
@@ -228,7 +230,7 @@ extension AppDelegate {
         window?.rootViewController = self.mainViewController
     }
     
-    //logout
+    // logout
     func proceedLogout() {
         if EMClient.shared().isLoggedIn {
             HyphenateMessengerHelper.sharedInstance.logout()
@@ -267,44 +269,5 @@ extension AppDelegate {
         }
         
     }
-    
-    func registerMessagingNotification() {
-        
-        //        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-        //        UIApplication.shared.registerUserNotificationSettings(settings)
-        //        UIApplication.shared.registerForRemoteNotifications()
-        
-        
-        
-        
-        //        let application : UIApplication = UIApplication.shared;
-        //        application.applicationIconBadgeNumber = 0;
-        //
-        //#if !TARGET_IPHONE_SIMULATOR
-        //
-        //        if(application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
-        //            let notificationTypes: UIUserNotificationType = [.badge, .alert, .sound]
-        //            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-        //            application.registerUserNotificationSettings(settings)
-        //        } else {
-        //            let notificationTypes: UIRemoteNotificationType = [.badge, .sound, .alert]
-        //            UIApplication.shared.registerForRemoteNotifications(matching: notificationTypes)
-        //        }
-        //#endif
-        
-        /*XCode 8 issue, can not compile
-         #if !TARGET_IPHONE_SIMULATOR
-         
-         if(application.responds(to: #selector(self.registerForRemoteNotifications))) {
-         application.registerForRemoteNotifications()
-         } else {
-         let notificationTypes: UIRemoteNotificationType = [.badge, .sound, .alert]
-         UIApplication.shared.registerForRemoteNotifications(matching: notificationTypes)
-         }
-         #endif
-         
-         */
-    }
-    
 }
 
