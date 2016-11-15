@@ -45,6 +45,8 @@
 		9A32FA391DD94DFE007690E5 /* EMGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA381DD94DFE007690E5 /* EMGroupModel.swift */; };
 		9A32FA3B1DD95D33007690E5 /* IEMRealtimeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA3A1DD95D33007690E5 /* IEMRealtimeSearch.swift */; };
 		9A32FA3D1DD95E33007690E5 /* IEMConferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA3C1DD95E33007690E5 /* IEMConferenceModel.swift */; };
+		9A32FA3F1DDAE659007690E5 /* EMUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA3E1DDAE659007690E5 /* EMUserModel.swift */; };
+		9A32FA411DDAE687007690E5 /* IEMUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32FA401DDAE687007690E5 /* IEMUserModel.swift */; };
 		9A3970A71DBF43E200D68937 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3970A61DBF43E200D68937 /* UIImage+animatedGIF.m */; };
 		9A3970A91DBF464600D68937 /* Splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A3970A81DBF464600D68937 /* Splash.gif */; };
 		9A51E5281DBF5EDD00B3695B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A51E5271DBF5EDD00B3695B /* LaunchScreen.storyboard */; };
@@ -283,6 +285,8 @@
 		9A32FA381DD94DFE007690E5 /* EMGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMGroupModel.swift; sourceTree = "<group>"; };
 		9A32FA3A1DD95D33007690E5 /* IEMRealtimeSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEMRealtimeSearch.swift; sourceTree = "<group>"; };
 		9A32FA3C1DD95E33007690E5 /* IEMConferenceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEMConferenceModel.swift; sourceTree = "<group>"; };
+		9A32FA3E1DDAE659007690E5 /* EMUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMUserModel.swift; sourceTree = "<group>"; };
+		9A32FA401DDAE687007690E5 /* IEMUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEMUserModel.swift; sourceTree = "<group>"; };
 		9A3970A51DBF43E200D68937 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		9A3970A61DBF43E200D68937 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		9A3970A81DBF464600D68937 /* Splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Splash.gif; sourceTree = "<group>"; };
@@ -1450,6 +1454,8 @@
 				9A32FA381DD94DFE007690E5 /* EMGroupModel.swift */,
 				9A32FA3A1DD95D33007690E5 /* IEMRealtimeSearch.swift */,
 				9A32FA3C1DD95E33007690E5 /* IEMConferenceModel.swift */,
+				9A32FA3E1DDAE659007690E5 /* EMUserModel.swift */,
+				9A32FA401DDAE687007690E5 /* IEMUserModel.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -1808,6 +1814,7 @@
 				B6346B161D9E6C5100CBEAE2 /* MWZoomingScrollView.m in Sources */,
 				B6346B3B1D9E6C5100CBEAE2 /* NSDate+Category.m in Sources */,
 				B6346B851DA24F5C00CBEAE2 /* RequestEntity.swift in Sources */,
+				9A32FA3F1DDAE659007690E5 /* EMUserModel.swift in Sources */,
 				B6346B1B1D9E6C5100CBEAE2 /* EMSDWebImageDownloader.m in Sources */,
 				B6346B511D9E6C5100CBEAE2 /* EaseBaseMessageCell.m in Sources */,
 				B6346B3F1D9E6C5100CBEAE2 /* UIViewController+HUD.m in Sources */,
@@ -1865,6 +1872,7 @@
 				9A06AB1F1DB67BBC003A5B2E /* SettingsNotificationTableViewController.swift in Sources */,
 				9A2E70AE1DA224FA00D3EE94 /* ProfileNameTableViewCell.swift in Sources */,
 				B6346B401D9E6C5100CBEAE2 /* EaseChineseToPinyin.m in Sources */,
+				9A32FA411DDAE687007690E5 /* IEMUserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
