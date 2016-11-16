@@ -18,6 +18,8 @@ class PublicGroupsTableViewController: UITableViewController, GroupUIProtocol {
     
     let KPUBLICGROUP_PAGE_COUNT =  50
 
+    var isSearching: Bool
+    
     override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -59,7 +61,7 @@ class PublicGroupsTableViewController: UITableViewController, GroupUIProtocol {
     }
     
     var cursor: String?
-    var requestGroupModel: EMGroupModel
+    var requestGroupModel: EMGroupModel?
     var appliedDataSource: [String]?
     {
         set
@@ -121,19 +123,61 @@ class PublicGroupsTableViewController: UITableViewController, GroupUIProtocol {
             }
         }
     }
-
+    
+    func reloadRequestedAppliedDataSource() {
+        
+        if let requestGroupModel = self.requestGroupModel, let group = requestGroupModel.group {
+            DispatchQueue.main.async {
+                self.appliedDataSource?.append(group.groupId)
+                let index = self.publicGroups.index(of: requestGroupModel)
+                let indexPath = IndexPath(row: index!, section: 0)
+                self.tableView.beginUpdates()
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+                self.tableView.endUpdates()
+                self.requestGroupModel = nil
+            }
+        }
+    }
+    
+    // MARK - Join Public Group
+    
+    func joinToPublicGroup(groupID: String) {
+        EMClient.shared().groupManager.joinPublicGroup(groupID) { (group, error) in
+            if error != nil {
+                self.reloadRequestedAppliedDataSource()
+            }
+        }
+    }
+    
+    func requestToJoinPublicGroup(groupID: String, message: String) {
+        EMClient.shared().groupManager.request(toJoinPublicGroup: groupID, message: message) { (group, error) in
+            if error != nil {
+                self.reloadRequestedAppliedDataSource()
+            }
+        }
+    }
+    
     // MARK - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        if (self.loadState != FetchPublicGroupState.FetchPublicGroupState_Nomore && !self.isSearching) {
+            return 2;
+        }
+        return 1;
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if self.isSeaching {
+            return (self.searchResults?.count)!
+        }
+        
+        if self.loadState != FetchPublicGroupState.FetchPublicGroupState_Nomore, section == 1 {
+            return 1
+        }
+        
+        return self.publicGroups.count;
     }
-
 }
 
 protocol GroupUIProtocol {
