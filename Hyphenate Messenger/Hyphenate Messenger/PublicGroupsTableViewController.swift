@@ -30,8 +30,25 @@ class PublicGroupsTableViewController: UITableViewController, GroupUIProtocol {
     
     // MARK - GroupUIProtocol Delegate methods
     
-    internal func joinPublicGroup(groupModel: [EMGroupModel]) {
-        
+    internal func joinPublicGroup(groupModel: EMGroupModel) {
+        self.requestGroupModel = groupModel
+        if let group = groupModel.group, group.setting.style == EMGroupStylePublicOpenJoin {
+            self.joinToPublicGroup(groupID: group.groupId)
+        } else {
+            let alert = UIAlertController(title: "", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: "ok"), style: .cancel, handler:  { (alertAction) in
+                let messageTextfield = alert.textFields?.first
+                var messageString = ""
+                if (messageTextfield?.text?.characters.count)! > 0 {
+                    messageString = (messageTextfield?.text)!
+                }
+                self.requestToJoinPublicGroup(groupID: (self.requestGroupModel?.group?.groupId)!, message: messageString)
+            }))
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel, handler: nil))
+            
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 
     internal func removeSelectOccupants(modelArray: [EMUserModel]) {
@@ -178,11 +195,26 @@ class PublicGroupsTableViewController: UITableViewController, GroupUIProtocol {
         
         return self.publicGroups.count;
     }
-}
-
-protocol GroupUIProtocol {
     
-    func addSelectOccupants(modelArray: [EMUserModel])
-    func removeSelectOccupants(modelArray: [EMUserModel])
-    func joinPublicGroup(groupModel: [EMGroupModel])
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    //MARK - UIScrollViewDelegate
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if (scrollView.contentOffset.y >= max(0, scrollView.contentSize.height - scrollView.frame.size.height) + 50) {
+            if self.loadState == FetchPublicGroupState.FetchPublicGroupState_Normal {
+                self.fetchPublicGroups()
+            }
+        }
+    }
 }

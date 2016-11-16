@@ -79,6 +79,10 @@ class GroupsTableViewController: UITableViewController {
         chatController?.hidesBottomBarWhenPushed = true
         self.navigationController!.pushViewController(chatController!, animated: true)
     }
-        
+}
 
+protocol GroupUIProtocol {
+    func addSelectOccupants(modelArray: [EMUserModel])
+    func removeSelectOccupants(modelArray: [EMUserModel])
+    func joinPublicGroup(groupModel: EMGroupModel)
 }
